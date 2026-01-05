@@ -309,3 +309,25 @@ h4 {
     height: 70px;
   }
 }
+/* iframe スマホ対策（最重要） */
+.iframe-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.iframe-wrap iframe {
+  width: 100%;
+  min-height: 420px;
+  border: none;
+}
+
+/* カウンター整形 */
+.counter {
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* スマホ最終保険 */
+body {
+  overflow-x: hidden;
+}
