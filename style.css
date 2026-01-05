@@ -1,0 +1,315 @@
+@charset "utf-8";
+
+/* 背景画像 */
+body {
+    background-image: url(bg_natural_sougen.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+}
+
+/* ページタイトルの設定 */
+h1 {
+    width: 300px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    border: 4px solid rgb(250, 210, 232);
+    background-color: rgb(250, 167, 211);
+    color: #fff;
+    font-size: 250%;
+    text-align: center;
+    line-height: 1;
+    text-shadow: 3px 3px 10px rgb(85, 51, 69);
+    box-shadow: 3px 3px 7px rgba(85, 51, 69, 0.5);
+    background-image: linear-gradient(to bottom, rgb(250, 167, 211), rgb(252, 122, 191));
+}
+h1 a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+h1 a:visited {
+    color: inherit;
+}
+h1 a:hover {
+    color: inherit;
+}
+
+/* 我が家の犬たち */
+header p {
+    text-align: center;
+    font-size: 180%;
+}
+
+/* ナビ */
+nav ol, nav ul {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+nav a {
+    display: block;
+}
+/* nav a.small {
+    display: block;
+    width: 150px;
+    margin: 5px auto;
+    padding: 4px;
+    text-align: center;
+    background: #ebb9f4;
+    color: #000;
+    text-decoration: none;
+    border: 3px solid #dc65f3;
+    box-shadow: 3px 3px 7px #2c1431;
+}
+nav a.small:hover {
+    background: #e386f5; */
+/* } */
+nav a.big {
+    display: block;
+    width: 190px;
+    margin: 8px auto;
+    padding: 6px;
+    text-align: center;
+    background: #f2cdd2;
+    color: #000;
+    text-decoration: none;
+    border: 3px solid #fe7484;
+    box-shadow: 3px 3px 7px #301619;
+}
+nav a.big:hover {
+    background: #f8929e;
+}
+
+/* メインコンテンツ */
+main {
+    margin: 70px auto;
+    padding: 50px 80px;
+    border: 3px solid rgb(252, 122, 191);
+    background-color: rgb(251, 244, 248);
+    width: 800px;
+}
+
+/* 大見出し */
+h2 {
+    border: 4px solid rgb(250, 210, 232);
+    background-color: rgb(250, 167, 211);
+    color: #fff;
+    padding: 12px;
+    font-size: 30px;
+    text-shadow: 3px 3px 10px rgb(85, 51, 69);
+}
+
+/* もっとみる */
+.more {
+    text-align: center;
+}
+
+/* フロート */
+.imgL {
+    float: left;
+    margin-right: 20px;
+}
+.imgR {
+    float: right;
+    margin-left: 20px;
+}
+.clear {
+    clear: both;
+}
+
+/* メインのｐ */
+main p {
+    font-size: 25px;
+}
+
+/* 特別リンクの表示・非表示 */
+.special-link.unlocked {
+    display: none;
+}
+
+
+/* チェックボックス隠し */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* 1. ラベルを赤くする設定 */
+#dog1:checked ~ section label[for="dog1"],
+#dog2:checked ~ section label[for="dog2"],
+#dog3:checked ~ section label[for="dog3"] {
+    color: crimson;
+    font-weight: bold;
+}
+
+/* 2. 特別ページを切り替える設定（1行で繋げます） */
+#dog1:checked ~ #dog2:checked ~ #dog3:checked ~ section #special .special-link.unlocked {
+    display: block;
+}
+
+#dog1:checked ~ #dog2:checked ~ #dog3:checked ~ section #special .special-link.locked {
+    display: none;
+}
+
+/* コメ欄 */
+.kome {
+    width: 100%;
+    height: 420px;
+    border: 2px solid rgb(252, 122, 191);
+    border-radius: 16px;
+    background-color: rgb(251, 244, 248);
+    margin-top: 10px;
+}
+
+.waku {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* トップ */
+#ue {
+    display: block;
+    width: 100px;    /* 15pxだと小さすぎてクリックしにくいため、少し大きめが推奨です */
+    height: 100px;
+    margin: 20px;
+    border-radius: 50%;
+    
+    /* 要素自体を画面の右下に固定する */
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+
+    background-image: url(top.png);
+    background-repeat: no-repeat;
+    background-position: center; /* 画像をボタンの中央に */
+    background-size: contain;    /* 画像を枠内に収める */
+    
+    text-indent: -9999px;        /* 「TOP」という文字を隠して画像だけ見せる */
+}
+
+/* コメント投稿 */
+#toukou {
+    text-align: center;
+
+}
+
+/* 特別リンク */
+#special {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+h4 {
+    font-size: 22px;
+}
+
+/* 犬山太郎 */
+dt {
+    font-size: 25px;
+}
+dd {
+    font-size: 20px;
+}
+
+/* ｈ３ */
+h3 {
+    font-size: 30px;
+}
+
+/* 写真切り替え */
+.syasinn {
+    display: block;
+}
+.syasinn img.on {
+    display: none;
+}
+#kirikae:checked + .syasinn img.off {
+    display: none;
+}
+#kirikae:checked + .syasinn img.on {
+    display: block;
+}
+.syasinn img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* いぬ */
+/* 全体 */
+.photo-menu {
+  display: flex;
+  width: 100%;
+  height: 60vh; /* 画面の高さの60% */
+}
+
+/* 写真ボックス */
+.photo-box {
+  flex: 1;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+/* 写真の上の文字 */
+.photo-box span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+/* ホバー（PC） */
+.photo-box:hover {
+  transform: scale(1.02);
+  filter: brightness(0.9);
+}
+
+/* 各写真 */
+.dog1 {
+  background-image: url("dog_corgi_tricolor.png");
+}
+
+.dog2 {
+  background-image: url("dog_samoyed.png");
+}
+
+.dog3 {
+  background-image: url("dog_shetland_sheepdog.png");
+}
+
+/* 📱 スマホ対応：縦並び */
+@media (max-width: 600px) {
+  .photo-menu {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .photo-box {
+    height: 200px;
+  }
+}
+/* ここまでいぬ */
+
+/* パンくずリスト */
+#pan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#pan li + li::before {
+    content: ">";
+    margin: 0 6px;
+}
+
