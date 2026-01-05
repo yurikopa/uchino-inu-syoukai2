@@ -54,7 +54,6 @@ nav ol,
 nav ul {
   display: flex;
   justify-content: center;
-  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 20px 0;
