@@ -9,11 +9,11 @@
 
 body {
   margin: 0;
+  font-family: sans-serif;
   background-image: url(bg_natural_sougen.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: sans-serif;
 }
 
 /* =====================
@@ -24,7 +24,11 @@ h1 {
   margin: 40px auto;
   padding: 30px 20px;
   border: 4px solid rgb(250, 210, 232);
-  background-image: linear-gradient(to bottom, rgb(250, 167, 211), rgb(252, 122, 191));
+  background-image: linear-gradient(
+    to bottom,
+    rgb(250, 167, 211),
+    rgb(252, 122, 191)
+  );
   color: #fff;
   font-size: 2.5rem;
   text-align: center;
@@ -81,10 +85,10 @@ nav a.big:hover {
 main {
   margin: 70px auto;
   padding: 50px 80px;
-  border: 3px solid rgb(252, 122, 191);
-  background-color: rgb(251, 244, 248);
   width: 100%;
   max-width: 800px;
+  border: 3px solid rgb(252, 122, 191);
+  background-color: rgb(251, 244, 248);
 }
 
 main p {
@@ -112,7 +116,7 @@ h4 {
 }
 
 /* =====================
-   フロート画像
+   画像回り込み
 ===================== */
 .imgL {
   float: left;
@@ -131,11 +135,11 @@ h4 {
 }
 
 /* =====================
-   コメント枠
+   コメント欄
 ===================== */
 .kome {
   width: 100%;
-  height: 420px;
+  min-height: 300px;
   border: 2px solid rgb(252, 122, 191);
   border-radius: 16px;
   background-color: rgb(251, 244, 248);
@@ -165,6 +169,28 @@ h4 {
 }
 
 /* =====================
+   写真切り替え
+===================== */
+.syasinn img.on {
+  display: none;
+}
+
+#kirikae:checked + .syasinn img.off {
+  display: none;
+}
+
+#kirikae:checked + .syasinn img.on {
+  display: block;
+}
+
+.syasinn img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* =====================
    写真メニュー
 ===================== */
 .photo-menu {
@@ -186,7 +212,7 @@ h4 {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 1.1rem;
@@ -198,9 +224,15 @@ h4 {
   filter: brightness(0.9);
 }
 
-.dog1 { background-image: url("dog_corgi_tricolor.png"); }
-.dog2 { background-image: url("dog_samoyed.png"); }
-.dog3 { background-image: url("dog_shetland_sheepdog.png"); }
+.dog1 {
+  background-image: url("dog_corgi_tricolor.png");
+}
+.dog2 {
+  background-image: url("dog_samoyed.png");
+}
+.dog3 {
+  background-image: url("dog_shetland_sheepdog.png");
+}
 
 /* =====================
    パンくず
@@ -255,12 +287,20 @@ h4 {
     font-size: 1.1rem;
   }
 
+  .imgL,
+  .imgR {
+    float: none;
+    display: block;
+    margin: 0 auto 15px;
+  }
+
   .photo-menu {
     flex-direction: column;
     height: auto;
   }
 
   .photo-box {
+    width: 100%;
     min-height: 200px;
   }
 
