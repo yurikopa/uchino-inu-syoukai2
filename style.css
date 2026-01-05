@@ -293,9 +293,8 @@ h3 {
     flex-direction: column;
     height: auto;
   }
-
-  .photo-box {
-    height: 200px;
+.photo-box {
+    min-height: 200px; /* ←これ超大事 */
   }
 }
 /* ここまでいぬ */
