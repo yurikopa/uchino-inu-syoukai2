@@ -183,6 +183,7 @@ input[type="checkbox"] {
     background-color: rgb(251, 244, 248);
     margin-top: 10px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .iframe-wrap iframe {
@@ -190,6 +191,10 @@ input[type="checkbox"] {
     height: 100%;
     border: none;
     border-radius: 14px;
+    transform: scale(0.85);
+    transform-origin: 0 0;
+    width: 117.6%;
+    height: 117.6%;
 }
 
 .waku {
