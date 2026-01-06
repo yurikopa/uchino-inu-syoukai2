@@ -20,7 +20,7 @@ h1 {
     border: 4px solid rgb(250, 210, 232);
     background-color: rgb(250, 167, 211);
     color: #fff;
-    font-size: 200%;
+    font-size: 160%;
     text-align: center;
     line-height: 1.2;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
@@ -32,7 +32,7 @@ h1 a {
     text-decoration: none;
     display: block;
     width: 100%;
-    padding: 20px 15px;
+    padding: 15px 10px;
     box-sizing: border-box;
 }
 h1 a:visited {
@@ -45,8 +45,13 @@ h1 a:hover {
 /* 我が家の犬たち */
 header p {
     text-align: center;
-    font-size: 150%;
+    font-size: 120%;
     padding: 0 10px;
+}
+
+/* 訪問者カウンター */
+.counter {
+    font-size: 12px !important;
 }
 
 /* ナビ */
@@ -99,8 +104,8 @@ h2 {
     border: 4px solid rgb(250, 210, 232);
     background-color: rgb(250, 167, 211);
     color: #fff;
-    padding: 12px;
-    font-size: 24px;
+    padding: 10px;
+    font-size: 20px;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
     word-wrap: break-word;
 }
@@ -143,7 +148,7 @@ button:hover {
 
 /* メインのｐ */
 main p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -238,18 +243,18 @@ h4 {
 
 /* 犬山太郎 */
 dt {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 dd {
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 0;
     margin-bottom: 15px;
 }
 
 /* ｈ３ */
 h3 {
-    font-size: 24px;
+    font-size: 20px;
     word-wrap: break-word;
 }
 
