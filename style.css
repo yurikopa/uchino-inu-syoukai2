@@ -4,21 +4,25 @@
 body {
     background-image: url(bg_natural_sougen.jpg);
     background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-attachment: fixed;
+    background-size: cover;
+    background-attachment: scroll; /* スマホではfixedよりscrollが良い */
+    background-position: center;
+    margin: 0;
+    padding: 0;
 }
 
 /* ページタイトルの設定 */
 h1 {
-    width: 300px;
-    margin: 40px auto;
-    padding: 30px 20px;
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px 15px;
     border: 4px solid rgb(250, 210, 232);
     background-color: rgb(250, 167, 211);
     color: #fff;
-    font-size: 250%;
+    font-size: 200%;
     text-align: center;
-    line-height: 1;
+    line-height: 1.2;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
     box-shadow: 3px 3px 7px rgba(85, 51, 69, 0.5);
     background-image: linear-gradient(to bottom, rgb(250, 167, 211), rgb(252, 122, 191));
@@ -38,47 +42,39 @@ h1 a:hover {
 /* 我が家の犬たち */
 header p {
     text-align: center;
-    font-size: 180%;
+    font-size: 150%;
+    padding: 0 10px;
 }
 
 /* ナビ */
 nav ol, nav ul {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 16px;
     list-style-type: none;
     padding-left: 0;
     margin-left: 0;
+    flex-wrap: wrap;
+    gap: 0;
 }
 nav a {
     display: block;
 }
-/* nav a.small {
-    display: block;
-    width: 150px;
-    margin: 5px auto;
-    padding: 4px;
-    text-align: center;
-    background: #ebb9f4;
-    color: #000;
-    text-decoration: none;
-    border: 3px solid #dc65f3;
-    box-shadow: 3px 3px 7px #2c1431;
-}
-nav a.small:hover {
-    background: #e386f5; */
-/* } */
 nav a.big {
     display: block;
-    width: 190px;
-    margin: 8px auto;
-    padding: 6px;
+    width: auto;
+    min-width: 120px;
+    margin: 0;
+    padding: 10px 12px;
     text-align: center;
     background: #f2cdd2;
     color: #000;
     text-decoration: none;
     border: 3px solid #fe7484;
     box-shadow: 3px 3px 7px #301619;
+    font-size: 16px;
 }
 nav a.big:hover {
     background: #f8929e;
@@ -86,11 +82,13 @@ nav a.big:hover {
 
 /* メインコンテンツ */
 main {
-    margin: 70px auto;
-    padding: 50px 80px;
+    margin: 20px auto;
+    padding: 30px 20px;
     border: 3px solid rgb(252, 122, 191);
     background-color: rgb(251, 244, 248);
-    width: 800px;
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box;
 }
 
 /* 大見出し */
@@ -99,8 +97,9 @@ h2 {
     background-color: rgb(250, 167, 211);
     color: #fff;
     padding: 12px;
-    font-size: 30px;
+    font-size: 24px;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
+    word-wrap: break-word;
 }
 
 /* もっとみる */
@@ -108,14 +107,14 @@ h2 {
     text-align: center;
 }
 
-/* フロート */
-.imgL {
-    float: left;
-    margin-right: 20px;
-}
-.imgR {
-    float: right;
-    margin-left: 20px;
+/* フロート（スマホでは無効化） */
+.imgL, .imgR {
+    float: none;
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 .clear {
     clear: both;
@@ -123,14 +122,14 @@ h2 {
 
 /* メインのｐ */
 main p {
-    font-size: 25px;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 /* 特別リンクの表示・非表示 */
 .special-link.unlocked {
     display: none;
 }
-
 
 /* チェックボックス隠し */
 input[type="checkbox"] {
@@ -145,7 +144,7 @@ input[type="checkbox"] {
     font-weight: bold;
 }
 
-/* 2. 特別ページを切り替える設定（1行で繋げます） */
+/* 2. 特別ページを切り替える設定 */
 #dog1:checked ~ #dog2:checked ~ #dog3:checked ~ section #special .special-link.unlocked {
     display: block;
 }
@@ -155,68 +154,79 @@ input[type="checkbox"] {
 }
 
 /* コメ欄 */
-.kome {
+.kome, .iframe-wrap {
     width: 100%;
-    height: 420px;
+    height: 450px;
     border: 2px solid rgb(252, 122, 191);
     border-radius: 16px;
     background-color: rgb(251, 244, 248);
     margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.iframe-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 14px;
 }
 
 .waku {
-    max-width: 700px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 /* トップ */
 #ue {
     display: block;
-    width: 100px;    /* 15pxだと小さすぎてクリックしにくいため、少し大きめが推奨です */
-    height: 100px;
-    margin: 20px;
+    width: 60px;
+    height: 60px;
+    margin: 0;
     border-radius: 50%;
-    
-    /* 要素自体を画面の右下に固定する */
     position: fixed;
-    right: 15px;
-    bottom: 15px;
-
+    right: 10px;
+    bottom: 10px;
     background-image: url(top.png);
     background-repeat: no-repeat;
-    background-position: center; /* 画像をボタンの中央に */
-    background-size: contain;    /* 画像を枠内に収める */
-    
-    text-indent: -9999px;        /* 「TOP」という文字を隠して画像だけ見せる */
+    background-position: center;
+    background-size: contain;
+    text-indent: -9999px;
+    z-index: 1000;
 }
 
 /* コメント投稿 */
 #toukou {
     text-align: center;
-
 }
 
 /* 特別リンク */
 #special {
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     text-align: center;
+    padding: 0 10px;
 }
 h4 {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 /* 犬山太郎 */
 dt {
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: bold;
 }
 dd {
-    font-size: 20px;
+    font-size: 18px;
+    margin-left: 0;
+    margin-bottom: 15px;
 }
 
 /* ｈ３ */
 h3 {
-    font-size: 30px;
+    font-size: 24px;
+    word-wrap: break-word;
 }
 
 /* 写真切り替え */
@@ -235,96 +245,70 @@ h3 {
 .syasinn img {
     display: block;
     margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
-/* いぬ */
-/* 全体 */
+/* いぬ - 写真メニュー */
 .photo-menu {
-  display: flex;
-  width: 100%;
-  height: 60vh; /* 画面の高さの60% */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
 }
 
 /* 写真ボックス */
 .photo-box {
-  flex: 1;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  text-decoration: none;
-  color: white;
-  position: relative;
-  transition: transform 0.2s, filter 0.2s;
+    flex: 1;
+    min-height: 250px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: transform 0.2s, filter 0.2s;
 }
 
 /* 写真の上の文字 */
 .photo-box span {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0,0,0,0.5);
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 18px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.6);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
-/* ホバー（PC） */
-.photo-box:hover {
-  transform: scale(1.02);
-  filter: brightness(0.9);
+/* タップ時のフィードバック */
+.photo-box:active {
+    transform: scale(0.98);
+    filter: brightness(0.9);
 }
 
 /* 各写真 */
 .dog1 {
-  background-image: url("dog_corgi_tricolor.png");
+    background-image: url("dog_corgi_tricolor.png");
 }
 
 .dog2 {
-  background-image: url("dog_samoyed.png");
+    background-image: url("dog_samoyed.png");
 }
 
 .dog3 {
-  background-image: url("dog_shetland_sheepdog.png");
+    background-image: url("dog_shetland_sheepdog.png");
 }
-
-/* 📱 スマホ対応：縦並び */
-@media (max-width: 600px) {
-  .photo-menu {
-    flex-direction: column;
-    height: auto;
-  }
-
-  body {
-        /* 横スクロール防止 */
-        overflow-x: hidden;
-    }
-
-    main {
-        width: 94%;
-        padding: 30px 20px; /* 横の余白を80px→20pxに減らす */
-        margin: 20px auto;
-    }
-    main p {
-        font-size: 18px; /* 文字サイズを少し小さく */
-    }
-
-    /* 3. 画像の回り込みを解除し、縦積みにする */
-    .imgL, .imgR {
-        float: none;
-        display: block;
-        margin: 0 auto 20px auto;
-        width: 100%; /* 画像を最大幅まで広げるか */
-        max-width: 400px; /* 大きすぎないように制限 */
-    }
-}
-/* ここまでいぬ */
 
 /* パンくずリスト */
 #pan ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0 10px;
+    margin: 10px 0;
     display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
 }
 
 #pan li + li::before {
@@ -332,3 +316,110 @@ h3 {
     margin: 0 6px;
 }
 
+/* 画像の自動調整 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* タッチデバイス用のタップ領域拡大（nav以外） */
+main a, button, label {
+    min-height: 44px;
+}
+
+/* PC表示用（タブレット以上） */
+@media (min-width: 768px) {
+    body {
+        background-attachment: fixed;
+        background-size: 100% auto;
+    }
+    
+    h1 {
+        font-size: 250%;
+        padding: 30px 20px;
+        margin: 40px auto;
+    }
+    
+    header p {
+        font-size: 180%;
+    }
+    
+    nav ol, nav ul {
+        flex-direction: row;
+        font-size: 22px;
+    }
+    
+    nav a.big {
+        width: 190px;
+        margin: 0;
+        padding: 6px;
+        font-size: inherit;
+    }
+    
+    main {
+        margin: 70px auto;
+        padding: 50px 80px;
+        width: 1000px;
+        max-width: 95%;
+    }
+    
+    main p {
+        font-size: 25px;
+    }
+    
+    h2 {
+        font-size: 30px;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    .imgL {
+        float: left;
+        margin-right: 20px;
+        width: auto;
+        max-width: 50%;
+    }
+    
+    .imgR {
+        float: right;
+        margin-left: 20px;
+        width: auto;
+        max-width: 50%;
+    }
+    
+    .kome, .iframe-wrap {
+        height: 550px;
+    }
+    
+    #ue {
+        width: 100px;
+        height: 100px;
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    .photo-menu {
+        flex-direction: row;
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .photo-box {
+        background-size: contain;
+    }
+    
+    .photo-box:hover {
+        transform: scale(1.02);
+        filter: brightness(0.9);
+    }
+    
+    dt {
+        font-size: 25px;
+    }
+    
+    dd {
+        font-size: 20px;
+    }
+}
