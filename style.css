@@ -113,11 +113,29 @@ h2 {
     display: block;
     margin: 20px auto;
     width: 100%;
-    max-width: 100%;
+    max-width: 400px;
     height: auto;
 }
 .clear {
     clear: both;
+}
+
+/* ボタン */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background: #f2cdd2;
+    color: #000;
+    border: 3px solid #fe7484;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 3px 3px 7px #301619;
+}
+
+button:hover {
+    background: #f8929e;
 }
 
 /* メインのｐ */
@@ -302,13 +320,22 @@ h3 {
 }
 
 /* パンくずリスト */
+#pan {
+    max-width: 90%;
+    margin: 10px auto;
+}
+
 #pan ul {
     list-style: none;
-    padding: 0 10px;
-    margin: 10px 0;
+    padding: 10px;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     font-size: 14px;
+}
+
+#pan li {
+    white-space: nowrap;
 }
 
 #pan li + li::before {
@@ -316,10 +343,31 @@ h3 {
     margin: 0 6px;
 }
 
+#pan a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+#pan a:hover {
+    text-decoration: underline;
+}
+
 /* 画像の自動調整 */
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer small {
+    font-size: 12px;
+    color: #666;
 }
 
 /* タッチデバイス用のタップ領域拡大（nav以外） */
