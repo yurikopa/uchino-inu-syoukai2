@@ -14,6 +14,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  overflow-x: hidden; /* 横スクロール防止 */
 }
 
 /* =====================
@@ -43,9 +44,6 @@ h1 a {
   display: block;
 }
 
-/* =====================
-   サブタイトル
-===================== */
 header p {
   text-align: center;
   font-size: 1.5rem;
@@ -61,14 +59,19 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 20px 0;
+  flex-wrap: wrap; /* 横幅足りなければ折り返す */
 }
 
 nav a.big {
   display: block;
-  font-size :0.8rem;
-  width: 190px;
-  padding: 6px;
+  font-size: 0.9rem;
+  max-width: 180px;  /* 横幅調整 */
+  width: auto;
+  padding: 6px 10px;
   text-align: center;
+  white-space: nowrap;     /* 折り返さない */
+  overflow: hidden;
+  text-overflow: ellipsis; /* はみ出た場合… */
   background: #f2cdd2;
   color: #000;
   text-decoration: none;
@@ -85,7 +88,6 @@ nav a.big:hover {
 ===================== */
 main {
   margin: 70px auto;
-  font-size: 1.8rem;
   padding: 50px 80px;
   width: 100%;
   max-width: 800px;
@@ -199,15 +201,18 @@ h4 {
   display: flex;
   width: 100%;
   height: 60vh;
+  gap: 10px;
+}
+
+.photo-menu img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .photo-box {
   flex: 1;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
-  transition: transform 0.2s, filter 0.2s;
 }
 
 .photo-box span {
@@ -224,16 +229,6 @@ h4 {
 .photo-box:hover {
   transform: scale(1.02);
   filter: brightness(0.9);
-}
-
-.dog1 {
-  background-image: url("dog_corgi_tricolor.png");
-}
-.dog2 {
-  background-image: url("dog_samoyed.png");
-}
-.dog3 {
-  background-image: url("dog_shetland_sheepdog.png");
 }
 
 /* =====================
@@ -269,48 +264,29 @@ h4 {
     font-size: 1.4rem;
   }
 
-@media (max-width: 600px) {
-
-  /* 背景スクロール固定解除 */
-  body {
-    background-attachment: scroll;
-  }
-
-  /* タイトル */
-  h1 {
-    font-size: 2rem;
-    padding: 20px;
-  }
-
-  header p {
-    font-size: 1.4rem;
-  }
-
-  /* ナビ（横並び + 折り返し + ボタン小さめ） */
+  /* nav */
   nav ol,
   nav ul {
-    flex-direction: row;       /* 横並び */
-    justify-content: center;   /* 中央寄せ */
-    align-items: center;
-    flex-wrap: wrap;           /* 横幅足りなければ折り返す */
-    gap: 10px;                 /* ボタン間隔 */
-    padding: 0;
-    margin: 15px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
   }
 
   nav a.big {
-    width: auto;
-    max-width: 120px;          /* 小さめにして横並びに収まる */
-    padding: 6px 10px;
-    text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    max-width: 160px;   /* 文字を一行に収める */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px 8px;
   }
 
-  /* メイン */
+  /* main */
   main {
     margin: 20px auto;
     padding: 15px 10px;
-    width: 95%;                /* スマホ画面にフィット */
+    width: 95%;
     max-width: 95%;
   }
 
@@ -328,47 +304,25 @@ h4 {
   }
 
   /* 写真メニュー */
-
   .photo-menu {
     flex-direction: column;
     height: auto;
-    gap: 10px; /* 写真同士の隙間 */
   }
 
   .photo-box {
     width: 100%;
-    min-height: 150px;       /* 必要に応じて調整 */
-    max-height: 50vh;        /* スマホ画面の半分くらいで収める */
-    background-size: contain; /* 元のままでもOK */
-    background-position: center;
-    background-repeat: no-repeat;
+    height: auto;
   }
 
-  /* TOPボタン小さく */
+  .photo-menu img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* TOPボタン */
   #ue {
     width: 70px;
     height: 70px;
   }
-
-/* iframe スマホ対策（最重要） */
-.iframe-wrap {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.iframe-wrap iframe {
-  width: 100%;
-  min-height: 420px;
-  border: none;
-}
-
-/* カウンター整形 */
-.counter {
-  text-align: center;
-  font-size: 1rem;
-}
-
-/* スマホ最終保険 */
-body {
-  overflow-x: hidden;
 }
