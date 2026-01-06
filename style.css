@@ -267,33 +267,65 @@ h4 {
     font-size: 1.4rem;
   }
 
+@media (max-width: 600px) {
+
+  /* 背景スクロール固定解除 */
+  body {
+    background-attachment: scroll;
+  }
+
+  /* タイトル */
+  h1 {
+    font-size: 2rem;
+    padding: 20px;
+  }
+
+  header p {
+    font-size: 1.4rem;
+  }
+
+  /* ナビ（横並び + 折り返し + ボタン小さめ） */
   nav ol,
   nav ul {
-    flex-direction: column;
+    flex-direction: row;       /* 横並び */
+    justify-content: center;   /* 中央寄せ */
     align-items: center;
+    flex-wrap: wrap;           /* 横幅足りなければ折り返す */
+    gap: 10px;                 /* ボタン間隔 */
+    padding: 0;
+    margin: 15px 0;
   }
 
   nav a.big {
-    width: 90%;
-    max-width: 300px;
+    width: auto;
+    max-width: 120px;          /* 小さめにして横並びに収まる */
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 0.9rem;
   }
 
+  /* メイン */
   main {
-    margin: 30px auto;
-    padding: 20px 15px;
+    margin: 20px auto;
+    padding: 15px 10px;
+    width: 95%;                /* スマホ画面にフィット */
+    max-width: 95%;
   }
 
   main p {
     font-size: 1.1rem;
   }
 
+  /* 画像回り込み解除 */
   .imgL,
   .imgR {
     float: none;
     display: block;
     margin: 0 auto 15px;
+    max-width: 90%;
   }
 
+  /* 写真メニュー */
   .photo-menu {
     flex-direction: column;
     height: auto;
@@ -304,11 +336,12 @@ h4 {
     min-height: 200px;
   }
 
+  /* TOPボタン小さく */
   #ue {
     width: 70px;
     height: 70px;
   }
-}
+
 /* iframe スマホ対策（最重要） */
 .iframe-wrap {
   width: 100%;
