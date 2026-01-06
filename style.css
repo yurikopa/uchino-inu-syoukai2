@@ -20,7 +20,7 @@ h1 {
     border: 4px solid rgb(250, 210, 232);
     background-color: rgb(250, 167, 211);
     color: #fff;
-    font-size: 160%;
+    font-size: 140%;
     text-align: center;
     line-height: 1.2;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
@@ -45,7 +45,7 @@ h1 a:hover {
 /* 我が家の犬たち */
 header p {
     text-align: center;
-    font-size: 120%;
+    font-size: 100%;
     padding: 0 10px;
 }
 
@@ -105,7 +105,7 @@ h2 {
     background-color: rgb(250, 167, 211);
     color: #fff;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
     word-wrap: break-word;
 }
@@ -148,13 +148,8 @@ button:hover {
 
 /* メインのｐ */
 main p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.6;
-}
-
-/* 特別リンクの表示・非表示 */
-.special-link.unlocked {
-    display: none;
 }
 
 /* チェックボックス隠し */
@@ -162,27 +157,10 @@ input[type="checkbox"] {
     display: none;
 }
 
-/* 1. ラベルを赤くする設定 */
-#dog1:checked ~ section label[for="dog1"],
-#dog2:checked ~ section label[for="dog2"],
-#dog3:checked ~ section label[for="dog3"] {
-    color: crimson;
-    font-weight: bold;
-}
-
-/* 2. 特別ページを切り替える設定 */
-#dog1:checked ~ #dog2:checked ~ #dog3:checked ~ section #special .special-link.unlocked {
-    display: block;
-}
-
-#dog1:checked ~ #dog2:checked ~ #dog3:checked ~ section #special .special-link.locked {
-    display: none;
-}
-
 /* コメ欄 */
 .kome, .iframe-wrap {
     width: 100%;
-    height: 450px;
+    height: 225px;
     border: 2px solid rgb(252, 122, 191);
     border-radius: 16px;
     background-color: rgb(251, 244, 248);
@@ -230,31 +208,20 @@ input[type="checkbox"] {
     text-align: center;
 }
 
-/* 特別リンク */
-#special {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    padding: 0 10px;
-}
-h4 {
-    font-size: 20px;
-}
-
 /* 犬山太郎 */
 dt {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
 dd {
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 0;
     margin-bottom: 15px;
 }
 
 /* ｈ３ */
 h3 {
-    font-size: 20px;
+    font-size: 18px;
     word-wrap: break-word;
 }
 
