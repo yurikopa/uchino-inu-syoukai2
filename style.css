@@ -1,48 +1,24 @@
 @charset "utf-8";
 
-/* =========================================
-   基本設定（共通）
-   ========================================= */
-
-/* すべての要素でpaddingを含めた幅計算をする（レイアウト崩れ防止） */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
 /* 背景画像 */
 body {
     background-image: url(bg_natural_sougen.jpg);
     background-repeat: no-repeat;
-    /* スマホで背景が途切れないようにカバー設定に変更推奨ですが、元の設定を維持しつつ調整 */
-    background-size: cover; 
+    background-size: 100% auto;
     background-attachment: fixed;
-    background-position: center;
-    margin: 0; /* ブラウザのデフォルト余白を削除 */
 }
-
-/* 画像が親要素からはみ出さないようにする */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* =========================================
-   ヘッダー・ナビゲーション
-   ========================================= */
 
 /* ページタイトルの設定 */
 h1 {
-    /* 固定幅ではなく、上限ありの可変幅に変更 */
-    width: 90%;
-    max-width: 300px;
+    width: 300px;
     margin: 40px auto;
     padding: 30px 20px;
     border: 4px solid rgb(250, 210, 232);
     background-color: rgb(250, 167, 211);
     color: #fff;
-    font-size: 250%; /* 必要に応じて rem単位推奨 */
+    font-size: 250%;
     text-align: center;
-    line-height: 1.2; /* 行間を少し広げる */
+    line-height: 1;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
     box-shadow: 3px 3px 7px rgba(85, 51, 69, 0.5);
     background-image: linear-gradient(to bottom, rgb(250, 167, 211), rgb(252, 122, 191));
@@ -52,7 +28,10 @@ h1 a {
     text-decoration: none;
     display: block;
 }
-h1 a:visited, h1 a:hover {
+h1 a:visited {
+    color: inherit;
+}
+h1 a:hover {
     color: inherit;
 }
 
@@ -60,28 +39,39 @@ h1 a:visited, h1 a:hover {
 header p {
     text-align: center;
     font-size: 180%;
-    padding: 0 10px;
 }
 
-/* ナビゲーション */
+/* ナビ */
 nav ol, nav ul {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* 画面が狭いときに折り返す */
     font-size: 22px;
     list-style-type: none;
     padding-left: 0;
     margin-left: 0;
-    gap: 10px; /* ボタン同士の間隔 */
 }
 nav a {
     display: block;
 }
+/* nav a.small {
+    display: block;
+    width: 150px;
+    margin: 5px auto;
+    padding: 4px;
+    text-align: center;
+    background: #ebb9f4;
+    color: #000;
+    text-decoration: none;
+    border: 3px solid #dc65f3;
+    box-shadow: 3px 3px 7px #2c1431;
+}
+nav a.small:hover {
+    background: #e386f5; */
+/* } */
 nav a.big {
     display: block;
     width: 190px;
-    /* marginはgapで制御するため少し調整 */
-    margin: 0 auto; 
+    margin: 8px auto;
     padding: 6px;
     text-align: center;
     background: #f2cdd2;
@@ -94,17 +84,13 @@ nav a.big:hover {
     background: #f8929e;
 }
 
-/* =========================================
-   メインコンテンツ
-   ========================================= */
+/* メインコンテンツ */
 main {
-    /* 固定800pxをやめ、最大幅制限付きの％指定にする */
-    width: 90%;
-    max-width: 800px;
-    margin: 40px auto; /* 上下マージンを少し調整 */
-    padding: 50px 80px; /* PC用デフォルト */
+    margin: 70px auto;
+    padding: 50px 80px;
     border: 3px solid rgb(252, 122, 191);
     background-color: rgb(251, 244, 248);
+    width: 800px;
 }
 
 /* 大見出し */
@@ -115,13 +101,6 @@ h2 {
     padding: 12px;
     font-size: 30px;
     text-shadow: 3px 3px 10px rgb(85, 51, 69);
-    word-break: break-all; /* 長い単語でのレイアウト崩れ防止 */
-}
-
-/* メインのｐ */
-main p {
-    font-size: 25px;
-    line-height: 1.6; /* 読みやすく行間を調整 */
 }
 
 /* もっとみる */
@@ -129,35 +108,35 @@ main p {
     text-align: center;
 }
 
-/* =========================================
-   画像配置（フロート）
-   ========================================= */
+/* フロート */
 .imgL {
     float: left;
     margin-right: 20px;
-    margin-bottom: 10px;
 }
 .imgR {
     float: right;
     margin-left: 20px;
-    margin-bottom: 10px;
 }
 .clear {
     clear: both;
 }
 
-/* =========================================
-   インタラクション（チェックボックス関連）
-   ========================================= */
+/* メインのｐ */
+main p {
+    font-size: 25px;
+}
+
+/* 特別リンクの表示・非表示 */
+.special-link.unlocked {
+    display: none;
+}
+
 
 /* チェックボックス隠し */
 input[type="checkbox"] {
     display: none;
 }
-/* 特別リンクの表示・非表示 */
-.special-link.unlocked {
-    display: none;
-}
+
 /* 1. ラベルを赤くする設定 */
 #dog1:checked ~ section label[for="dog1"],
 #dog2:checked ~ section label[for="dog2"],
@@ -165,15 +144,82 @@ input[type="checkbox"] {
     color: crimson;
     font-weight: bold;
 }
-/* 2. 特別ページ切り替え */
+
+/* 2. 特別ページを切り替える設定（1行で繋げます） */
 #dog1:checked ~ #dog2:checked ~ #dog3:checked ~ section #special .special-link.unlocked {
     display: block;
 }
+
 #dog1:checked ~ #dog2:checked ~ #dog3:checked ~ section #special .special-link.locked {
     display: none;
 }
 
-/* 写真切り替え機能 */
+/* コメ欄 */
+.kome {
+    width: 100%;
+    height: 420px;
+    border: 2px solid rgb(252, 122, 191);
+    border-radius: 16px;
+    background-color: rgb(251, 244, 248);
+    margin-top: 10px;
+}
+
+.waku {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* トップ */
+#ue {
+    display: block;
+    width: 100px;    /* 15pxだと小さすぎてクリックしにくいため、少し大きめが推奨です */
+    height: 100px;
+    margin: 20px;
+    border-radius: 50%;
+    
+    /* 要素自体を画面の右下に固定する */
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+
+    background-image: url(top.png);
+    background-repeat: no-repeat;
+    background-position: center; /* 画像をボタンの中央に */
+    background-size: contain;    /* 画像を枠内に収める */
+    
+    text-indent: -9999px;        /* 「TOP」という文字を隠して画像だけ見せる */
+}
+
+/* コメント投稿 */
+#toukou {
+    text-align: center;
+
+}
+
+/* 特別リンク */
+#special {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+h4 {
+    font-size: 22px;
+}
+
+/* 犬山太郎 */
+dt {
+    font-size: 25px;
+}
+dd {
+    font-size: 20px;
+}
+
+/* ｈ３ */
+h3 {
+    font-size: 30px;
+}
+
+/* 写真切り替え */
 .syasinn {
     display: block;
 }
@@ -191,135 +237,68 @@ input[type="checkbox"] {
     margin: 0 auto;
 }
 
-/* =========================================
-   その他パーツ
-   ========================================= */
-
-/* コメ欄 */
-.kome {
-    width: 100%;
-    height: 420px;
-    border: 2px solid rgb(252, 122, 191);
-    border-radius: 16px;
-    background-color: rgb(251, 244, 248);
-    margin-top: 10px;
-}
-.waku {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-}
-#toukou {
-    text-align: center;
-}
-
-/* トップへ戻るボタン */
-#ue {
-    display: block;
-    width: 80px;  /* スマホで邪魔にならないよう少し調整 */
-    height: 80px;
-    margin: 0;
-    border-radius: 50%;
-    position: fixed;
-    right: 15px;
-    bottom: 15px;
-    background-image: url(top.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    text-indent: -9999px;
-    z-index: 100; /* 他の要素より手前に */
-}
-
-/* 特別リンクエリア */
-#special {
-    margin-top: 70px;
-    margin-bottom: 70px;
-    text-align: center;
-}
-h4 {
-    font-size: 22px;
-}
-
-/* 定義リスト */
-dt {
-    font-size: 25px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-dd {
-    font-size: 20px;
-    margin-left: 20px;
-}
-h3 {
-    font-size: 30px;
-}
-
-/* パンくずリスト */
-#pan ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap; /* 長い場合は折り返し */
-}
-#pan li + li::before {
-    content: ">";
-    margin: 0 6px;
-}
-
-/* =========================================
-   写真メニュー（Flexbox）
-   ========================================= */
+/* いぬ */
+/* 全体 */
 .photo-menu {
-    display: flex;
-    width: 100%;
-    height: 60vh;
+  display: flex;
+  width: 100%;
+  height: 60vh; /* 画面の高さの60% */
 }
+
+/* 写真ボックス */
 .photo-box {
-    flex: 1;
-    background-size: cover; /* containからcoverへ変更推奨（隙間をなくすため） */
-    background-position: center;
-    background-repeat: no-repeat;
-    text-decoration: none;
-    color: white;
-    position: relative;
-    transition: transform 0.2s, filter 0.2s;
+  flex: 1;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: transform 0.2s, filter 0.2s;
 }
+
+/* 写真の上の文字 */
 .photo-box span {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0,0,0,0.5);
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 18px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 18px;
 }
-/* ホバー（PCのみ適用するようにメディアクエリ外で指定） */
-@media (hover: hover) {
-    .photo-box:hover {
-        transform: scale(1.02);
-        filter: brightness(0.9);
-    }
+
+/* ホバー（PC） */
+.photo-box:hover {
+  transform: scale(1.02);
+  filter: brightness(0.9);
 }
-.dog1 { background-image: url("dog_corgi_tricolor.png"); }
-.dog2 { background-image: url("dog_samoyed.png"); }
-.dog3 { background-image: url("dog_shetland_sheepdog.png"); }
 
+/* 各写真 */
+.dog1 {
+  background-image: url("dog_corgi_tricolor.png");
+}
 
-/* =========================================
-   【重要】スマホ用レスポンシブ設定
-   画面幅が768px以下の場合に適用されるCSS
-   ========================================= */
-@media screen and (max-width: 768px) {
-    
-    /* 1. 全体の文字サイズ調整 */
-    body {
+.dog2 {
+  background-image: url("dog_samoyed.png");
+}
+
+.dog3 {
+  background-image: url("dog_shetland_sheepdog.png");
+}
+
+/* 📱 スマホ対応：縦並び */
+@media (max-width: 600px) {
+  .photo-menu {
+    flex-direction: column;
+    height: auto;
+  }
+
+  body {
         /* 横スクロール防止 */
         overflow-x: hidden;
     }
 
-    /* 2. メインコンテンツの余白を狭くする */
     main {
         width: 94%;
         padding: 30px 20px; /* 横の余白を80px→20pxに減らす */
@@ -337,47 +316,19 @@ h3 {
         width: 100%; /* 画像を最大幅まで広げるか */
         max-width: 400px; /* 大きすぎないように制限 */
     }
-
-    /* 4. h1タイトルの調整 */
-    h1 {
-        font-size: 180%;
-        width: 90%;
-        padding: 20px 10px;
-    }
-
-    /* 5. h2見出しの調整 */
-    h2 {
-        font-size: 24px;
-    }
-
-    /* 6. ナビゲーションボタンを縦並びまたは2列にする */
-    nav a.big {
-        width: 100%; /* 親要素(li)いっぱいに広げる */
-        max-width: 250px; /* 巨大になりすぎないように */
-        font-size: 18px;
-    }
-    
-    /* 7. 写真メニューの縦並び化（元のコードにもありましたが強化） */
-    .photo-menu {
-        flex-direction: column;
-        height: auto;
-    }
-    .photo-box {
-        height: 200px; /* スマホでの1枚の高さを指定 */
-        width: 100%;
-    }
-
-    /* 8. iframe（コメ欄）調整 */
-    .kome {
-        height: 500px; /* スマホでは縦長にする */
-    }
-
-    /* 9. 定義リスト */
-    dt {
-        font-size: 20px;
-    }
-    dd {
-        font-size: 16px;
-        margin-left: 10px;
-    }
 }
+/* ここまでいぬ */
+
+/* パンくずリスト */
+#pan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#pan li + li::before {
+    content: ">";
+    margin: 0 6px;
+}
+
