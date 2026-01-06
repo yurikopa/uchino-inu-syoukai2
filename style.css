@@ -326,14 +326,20 @@ h4 {
   }
 
   /* 写真メニュー */
+
   .photo-menu {
     flex-direction: column;
     height: auto;
+    gap: 10px; /* 写真同士の隙間 */
   }
 
   .photo-box {
     width: 100%;
-    min-height: 200px;
+    min-height: 150px;       /* 必要に応じて調整 */
+    max-height: 50vh;        /* スマホ画面の半分くらいで収める */
+    background-size: contain; /* 元のままでもOK */
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   /* TOPボタン小さく */
